@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Checkbox 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../static/css/style.css">
+  </head>
+  <body>
+		
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h2 class="heading-section mb-5">{{now}}</h2>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-5">
+						<ul class="ks-cboxtags">
+							{% for x in range(ids-1,-1,-1) %}
+								<li>
+									<input type="checkbox">
+									<label for="checkboxOne">{{titles[x]}} </label>
+									<span style="font-size: 0.8rem;">{{dates[x].strftime("%x")}} - {{dates[x].strftime("%X")}}</span>
+								</li>
+							{% endfor %}
+					  </ul>
+					  <div class="container">
+						<form action="/add" method="POST">
+							<input type="text" name="title" minlength="3" maxlength="18" placeholder="Title" style="width: 100%; font-size: 1.3rem;">
+							<input class="btn btn-success" type="submit" value="Add" style="width: 100%; font-size: 1.3rem; margin-top: 1rem;">
+						</form>
+						<a href="/reset" class="btn btn-danger" style="width: 100%; font-size: 1.3rem; margin-top: 1rem;">Reset</a>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/popper.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/main.js"></script>
+  </body>
+</html>
